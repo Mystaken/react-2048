@@ -3,12 +3,15 @@ import { Layout } from 'antd';
 import Header from '@2048/layout/Header';
 import Content from '@2048/layout/Content';
 import Footer from '@2048/layout/Footer';
+import Game from '@2048/components/Game';
 
 const GamePage: FunctionComponent = () => {
   return (
     <Layout className="layout">
       <Header />
-      <Content />
+      <Content>
+        <Game />
+      </Content>
       <Footer />
     </Layout>
   );
