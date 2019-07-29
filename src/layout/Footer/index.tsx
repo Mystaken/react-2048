@@ -13,7 +13,12 @@ const FixedFooter = styled(Layout.Footer)`
 const Footer: FunctionComponent = () => {
   return (
     <FixedFooter>
-      <Button shape="circle" icon="github" size="large" />
+      <Button
+        shape="circle"
+        icon="github"
+        size="large"
+        href="https://github.com/Mystaken/2048"
+      />
     </FixedFooter>
   );
 };
