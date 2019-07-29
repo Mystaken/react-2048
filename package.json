@@ -1,0 +1,34 @@
+{
+  "name": "2048",
+  "version": "0.0.1",
+  "description": "2048 game made using Nextjs + React",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "next -p 8080"
+  },
+  "author": "Tianxiang Gao <kgaotianx@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^3.20.7",
+    "next": "^9.0.2",
+    "null-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "@types/react": "^16.8.23",
+    "@types/react-redux": "^7.1.1",
+    "@types/styled-components": "^4.1.18",
+    "babel-plugin-import": "^1.12.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "nodemon": "^1.19.1",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.5.3"
+  }
+}
