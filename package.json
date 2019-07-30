@@ -2,7 +2,7 @@
   "name": "2048",
   "version": "0.0.1",
   "description": "2048 game made using Nextjs + React",
-  "main": "index.ts",
+  "repository": "https://github.com/Mystaken/2048",
   "scripts": {
     "dev": "next -p 8080"
   },
