@@ -13,7 +13,6 @@ const Anime: FunctionComponent<AnimeProps> = ({ children, ...props }) => {
   );
   let [animeProps, setAnimeProps] = useState<AnimeProps | null>(null);
   useEffect(() => {
-    console.log(animeProps);
     if (targets && (animeProps === null || !object.eq(animeProps, props))) {
       setAnimeProps(props);
       if (animeInstance !== null) {
