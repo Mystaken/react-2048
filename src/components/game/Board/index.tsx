@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { Row, Col } from 'antd';
-import Tile from '@2048/components/game/tiles/Tile';
+import { Tile } from '@2048/components/game/tiles/Tile';
 
 const Board: FunctionComponent = () => {
   return (
