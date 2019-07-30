@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import Header from '@2048/layout/Header';
 import Content from '@2048/layout/Content';
 import Footer from '@2048/layout/Footer';
-import Game from '@2048/components/Game';
+import Game from '@2048/components/game/Game';
 
 const GamePage: FunctionComponent = () => {
   return (

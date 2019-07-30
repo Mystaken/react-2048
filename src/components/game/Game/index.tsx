@@ -1,8 +1,8 @@
 import { FunctionComponent, useState } from 'react';
 import Center from '@2048/layout/Center';
-import Board from '@2048/components/Board';
+import Board from '@2048/components/game/Board';
 import styled from 'styled-components';
-import Anime from '../core/Anime';
+import Anime from '@2048/components/core/Anime';
 import { Button } from 'antd';
 
 const Wrapper = styled.div`
