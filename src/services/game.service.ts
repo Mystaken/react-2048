@@ -9,7 +9,7 @@ export function isValidBoard(
   height: number,
   board: Board
 ): boolean {
-  if (board.length !== width) return false;
-  if (!board.every(r => r.length === height)) return false;
-  return true;
+  const widthValid = board.length === width;
+  const heightValid = board.every(r => r.length === height);
+  return widthValid && heightValid;
 }
