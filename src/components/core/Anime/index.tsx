@@ -1,10 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import anime from 'animejs';
 import object from '@2048/utils/object';
+import styled from 'styled-components';
 
 interface AnimeProps extends Omit<anime.AnimeParams, 'target'> {
   continue?: boolean;
 }
+const AnimeDiv = styled.div`
+  height: 100%;
+  width: 100%;
+`;
 
 const Anime: FunctionComponent<AnimeProps> = ({ children, ...props }) => {
   const [targets, setTargets] = useState<any>(null);
@@ -28,7 +33,7 @@ const Anime: FunctionComponent<AnimeProps> = ({ children, ...props }) => {
       setTargets(newTarget);
     }
   }
-  return <div ref={addTarget}>{children}</div>;
+  return <AnimeDiv ref={addTarget}>{children}</AnimeDiv>;
 };
 
 export default Anime;

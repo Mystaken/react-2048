@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Row, Col } from 'antd';
-import { Tile } from '@2048/components/game/tiles/Tile';
+import Anime from '@2048/components/core/Anime';
+import Squared from '@2048/components/core/Square';
 
 const Board: FunctionComponent = () => {
   return (
@@ -8,7 +9,9 @@ const Board: FunctionComponent = () => {
       {[0, 1, 2, 3].map(i => (
         <Row gutter={0} type="flex" justify="space-around" key={i}>
           {[0, 1, 2, 3].map(i => (
-            <Tile key={i}>{i}</Tile>
+            <Squared key={i}>
+              <Anime>{i}</Anime>
+            </Squared>
           ))}
         </Row>
       ))}
