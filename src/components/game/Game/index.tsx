@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import Center from '@2048/layout/Center';
-import Board from '@2048/components/game/Board';
+import Board, { BoardShift } from '@2048/components/game/Board';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -11,10 +11,40 @@ const Wrapper = styled.div`
 `;
 
 const Game: FunctionComponent = () => {
+  const [shift, setShift] = useState<null | BoardShift>(null);
+
+  function handleKeyPress(e: React.KeyboardEvent) {
+    switch (e.key) {
+      case 'ArrowUp':
+        setShift('up');
+        break;
+      case 'ArrowDown':
+        setShift('down');
+        break;
+      case 'ArrowLeft':
+        setShift('left');
+        break;
+      case 'ArrowRight':
+        setShift('right');
+        break;
+    }
+  }
+  console.log(shift);
   return (
-    <Wrapper>
+    <Wrapper
+      onClick={() => setShift('left')}
+      onKeyDown={e => {
+        handleKeyPress(e);
+      }}
+      tabIndex={0}>
       <Center>
-        <Board />
+        <Board
+          shift={shift}
+          onShiftEnd={() => {
+            console.log('ended');
+            setShift(null);
+          }}
+        />
       </Center>
     </Wrapper>
   );

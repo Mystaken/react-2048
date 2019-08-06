@@ -1,21 +1,71 @@
 import { FunctionComponent } from 'react';
 import { Row, Col } from 'antd';
-import Anime from '@2048/components/core/Anime';
+import Anime, { AnimeProps } from '@2048/components/core/Anime';
 import Squared from '@2048/components/core/Square';
 import { Tile } from '../tiles/Tile';
 
-const Board: FunctionComponent = () => {
+export type BoardShift = 'up' | 'down' | 'left' | 'right';
+interface BoardProps {
+  shift?: BoardShift | null;
+  onShiftEnd?: (shift: BoardShift) => any;
+}
+const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
+  function handleShiftComplete(a: anime.AnimeInstance) {
+    if (a.completed) {
+      onShiftEnd && shift && onShiftEnd(shift);
+    }
+  }
+
+  function generateAnimeProps(
+    shift: BoardShift | null | undefined,
+    x: number,
+    y: number
+  ): AnimeProps {
+    if (
+      !shift ||
+      (y === 0 && shift === 'up') ||
+      (y === 3 && shift === 'down') ||
+      (x === 0 && shift === 'left') ||
+      (x === 3 && shift === 'right')
+    ) {
+      return { restart: true } as AnimeProps;
+    }
+    let translate: AnimeProps = {};
+    switch (shift) {
+      case 'up':
+        translate = { translateY: '-100%' };
+        break;
+      case 'down':
+        translate = { translateY: '100%' };
+        break;
+      case 'right':
+        translate = { translateX: '100%' };
+        break;
+      case 'left':
+        translate = { translateX: '-100%' };
+        break;
+    }
+    return {
+      ...translate,
+      easing: 'easeInOutCirc',
+      duration: 150
+    };
+  }
+
   return (
     <Col xs={24} sm={24} md={20} lg={16} xl={12} xxl={8}>
-      {[0, 1, 2, 3].map(i => (
-        <Row gutter={0} type="flex" justify="space-around" key={i}>
-          {[0, 1, 2, 3].map(i => (
-            <Squared key={i}>
-              <Anime>
-                <Tile>{i}</Tile>
-              </Anime>
-            </Squared>
-          ))}
+      {[0, 1, 2, 3].map((_, y) => (
+        <Row gutter={0} type="flex" justify="space-around" key={y}>
+          {[0, 1, 2, 3].map((content, x) => {
+            const animeProps = generateAnimeProps(shift, x, y);
+            return (
+              <Squared key={x} style={{ border: '1px solid black' }}>
+                <Anime complete={handleShiftComplete} {...animeProps}>
+                  <Tile>{content}</Tile>
+                </Anime>
+              </Squared>
+            );
+          })}
         </Row>
       ))}
     </Col>
