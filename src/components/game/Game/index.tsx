@@ -29,7 +29,6 @@ const Game: FunctionComponent = () => {
         break;
     }
   }
-  console.log(shift);
   return (
     <Wrapper
       onClick={() => setShift('left')}

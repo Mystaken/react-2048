@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import Anime, { AnimeProps } from '@2048/components/core/Anime';
 import Squared from '@2048/components/core/Square';
@@ -10,11 +10,23 @@ interface BoardProps {
   onShiftEnd?: (shift: BoardShift) => any;
 }
 const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
+  const [groupShift, setGroupShift] = useState<{
+    shift: BoardShift | null;
+    completed: boolean;
+  }>({ shift: null, completed: false });
   function handleShiftComplete(a: anime.AnimeInstance) {
-    if (a.completed) {
+    if (a.completed && !groupShift.completed) {
       onShiftEnd && shift && onShiftEnd(shift);
+      setGroupShift(gs => ({ ...gs, completed: true }));
+      groupShift.completed = true;
     }
   }
+
+  useEffect(() => {
+    if (shift && shift !== groupShift.shift && groupShift.completed) {
+      setGroupShift({ shift, completed: false });
+    }
+  }, [shift]);
 
   function generateAnimeProps(
     shift: BoardShift | null | undefined,
