@@ -18,6 +18,7 @@ const Footer: FunctionComponent = () => {
         icon="github"
         size="large"
         href="https://github.com/Mystaken/2048"
+        target="_blank"
       />
     </FixedFooter>
   );
