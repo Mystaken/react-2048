@@ -10,10 +10,13 @@ const Wrapper = styled.div`
   }
 `;
 
+const MOUSE_DIST_THRESHOLD = 100;
+
 const Game: FunctionComponent = () => {
   const [shift, setShift] = useState<null | BoardShift>(null);
+  let mouseStart = { x: 0, y: 0 };
 
-  function handleKeyPress(e: React.KeyboardEvent) {
+  function onKeyDown(e: React.KeyboardEvent) {
     if (!shift) {
       switch (e.key) {
         case 'ArrowUp':
@@ -31,19 +34,41 @@ const Game: FunctionComponent = () => {
       }
     }
   }
+
+  function onMouseUp(e: React.MouseEvent) {
+    const diffX = e.screenX - mouseStart.x;
+    const diffY = e.screenY - mouseStart.y;
+    if (shift) return;
+    if (Math.abs(diffY) > Math.abs(diffX)) {
+      if (diffY > MOUSE_DIST_THRESHOLD) {
+        setShift('down');
+      } else if (diffY < -MOUSE_DIST_THRESHOLD) {
+        setShift('up');
+      }
+    } else {
+      if (diffX > MOUSE_DIST_THRESHOLD) {
+        setShift('right');
+      } else if (diffX < 0) {
+        setShift('left');
+      }
+    }
+  }
+
+  function onMouseDown(e: React.MouseEvent) {
+    mouseStart = { x: e.screenX, y: e.screenY };
+  }
+
+  function onShiftEnd() {
+    setShift(null);
+  }
   return (
     <Wrapper
-      onKeyDown={e => {
-        handleKeyPress(e);
-      }}
+      onKeyDown={onKeyDown}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
       tabIndex={0}>
       <Center>
-        <Board
-          shift={shift}
-          onShiftEnd={() => {
-            setShift(null);
-          }}
-        />
+        <Board shift={shift} onShiftEnd={onShiftEnd} />
       </Center>
     </Wrapper>
   );
