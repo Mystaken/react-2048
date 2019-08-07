@@ -76,9 +76,7 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
                 key={x}
                 style={{ border: '1px solid black', width: '25%' }}>
                 <Anime complete={handleShiftComplete} {...animeProps}>
-                  <Tile>
-                    <span>{y * 4 + x}</span>
-                  </Tile>
+                  <Tile>{y * 4 + x}</Tile>
                 </Anime>
               </Squared>
             );
