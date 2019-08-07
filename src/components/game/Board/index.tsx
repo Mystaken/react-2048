@@ -60,7 +60,7 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
     return {
       ...translate,
       easing: 'easeInOutCirc',
-      duration: 150
+      duration: 300
     };
   }
 
