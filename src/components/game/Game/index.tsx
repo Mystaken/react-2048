@@ -39,7 +39,7 @@ const Game: FunctionComponent = () => {
     const diffX = e.screenX - mouseStart.x;
     const diffY = e.screenY - mouseStart.y;
     if (shift) return;
-    if (Math.abs(diffY) > Math.abs(diffX)) {
+    if (Math.abs(diffY) * 1.5 > Math.abs(diffX)) {
       if (diffY > MOUSE_DIST_THRESHOLD) {
         setShift('down');
       } else if (diffY < -MOUSE_DIST_THRESHOLD) {
