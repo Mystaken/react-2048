@@ -67,14 +67,18 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
 
   return (
     <Col xs={24} sm={24} md={20} lg={16} xl={12} xxl={8}>
-      {[0, 1, 2, 3].map((_, y) => (
+      {[1, 2, 3, 4].map((_, y) => (
         <Row gutter={0} type="flex" justify="space-around" key={y}>
-          {[0, 1, 2, 3].map((content, x) => {
+          {[1, 2, 3, 4].map((_, x) => {
             const animeProps = generateAnimeProps(shift, x, y);
             return (
-              <Squared key={x} style={{ border: '1px solid black' }}>
+              <Squared
+                key={x}
+                style={{ border: '1px solid black', width: '25%' }}>
                 <Anime complete={handleShiftComplete} {...animeProps}>
-                  <Tile>{content}</Tile>
+                  <Tile>
+                    <span>{y * 4 + x}</span>
+                  </Tile>
                 </Anime>
               </Squared>
             );

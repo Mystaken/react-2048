@@ -4,7 +4,6 @@ import WithoutTextSelection from '@2048/components/core/hoc/WithoutTextSelection
 
 export const Tile: FunctionComponent = ({ children }) => {
   const StyledDiv = WithoutTextSelection(styled.div`
-    border: 2px black solid;
     height: 100%;
     width: 100%;
     background: lightblue;
