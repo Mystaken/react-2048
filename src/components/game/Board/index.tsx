@@ -23,10 +23,10 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
   }
 
   useEffect(() => {
-    if (shift && shift !== groupShift.shift && groupShift.completed) {
+    if (shift && groupShift.completed) {
       setGroupShift({ shift, completed: false });
     }
-  }, [shift]);
+  });
 
   function generateAnimeProps(
     shift: BoardShift | null | undefined,

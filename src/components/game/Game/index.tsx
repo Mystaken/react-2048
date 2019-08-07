@@ -14,24 +14,25 @@ const Game: FunctionComponent = () => {
   const [shift, setShift] = useState<null | BoardShift>(null);
 
   function handleKeyPress(e: React.KeyboardEvent) {
-    switch (e.key) {
-      case 'ArrowUp':
-        setShift('up');
-        break;
-      case 'ArrowDown':
-        setShift('down');
-        break;
-      case 'ArrowLeft':
-        setShift('left');
-        break;
-      case 'ArrowRight':
-        setShift('right');
-        break;
+    if (!shift) {
+      switch (e.key) {
+        case 'ArrowUp':
+          setShift('up');
+          break;
+        case 'ArrowDown':
+          setShift('down');
+          break;
+        case 'ArrowLeft':
+          setShift('left');
+          break;
+        case 'ArrowRight':
+          setShift('right');
+          break;
+      }
     }
   }
   return (
     <Wrapper
-      onClick={() => setShift('left')}
       onKeyDown={e => {
         handleKeyPress(e);
       }}
@@ -40,7 +41,6 @@ const Game: FunctionComponent = () => {
         <Board
           shift={shift}
           onShiftEnd={() => {
-            console.log('ended');
             setShift(null);
           }}
         />
