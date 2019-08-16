@@ -59,7 +59,7 @@ export function propagateLine(
   length: number
 ): boolean {
   let moved = false;
-  for (let i = length - 1; i > 0; i--) {
+  for (let i = length - 1; i >= 0; i--) {
     if (getPoint(i) !== 0) {
       moved = push(getPoint, setPoint, length, i) || moved;
     }
