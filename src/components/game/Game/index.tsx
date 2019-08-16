@@ -3,8 +3,9 @@ import Center from '@2048/layout/Center';
 import Board from '@2048/components/game/Board';
 import styled from 'styled-components';
 import { BoardShift } from '@2048/types/game';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import gameAction from '@2048/redux/actions/game.action';
+import { $board } from '@2048/redux/selectors/game.selector';
 
 const Wrapper = styled.div`
    {
@@ -17,6 +18,7 @@ const MOUSE_DIST_THRESHOLD = 50;
 
 const Game: FunctionComponent = () => {
   const [shift, setShift] = useState<null | BoardShift>(null);
+  const board = useSelector($board);
   const dispatch = useDispatch();
 
   let mouseStart = { x: 0, y: 0 };
@@ -65,7 +67,9 @@ const Game: FunctionComponent = () => {
 
   function onShiftEnd(shift: BoardShift) {
     setShift(null);
-    dispatch(gameAction.shiftBoard(shift));
+    const shiftAction = gameAction.shiftBoard(board, shift);
+    dispatch(shiftAction);
+    dispatch(gameAction.generateRandomCell(shiftAction.body!, 2));
   }
   return (
     <Wrapper

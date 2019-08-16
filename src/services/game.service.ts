@@ -159,3 +159,21 @@ export function propagate(board: Board, shift: BoardShift): boolean {
 export function clone(board: Board): Board {
   return board.map(row => [...row]);
 }
+
+export function addRandomCell(board: Board, value: number): boolean {
+  let freeCells: [number, number][] = [];
+  const height = getHeight(board);
+  const width = getWidth(board);
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) {
+      if (board[i][j] === 0) {
+        freeCells.push([i, j]);
+      }
+    }
+  }
+  if (freeCells.length === 0) return false;
+  const randPoint = freeCells[Math.floor(Math.random() * freeCells.length)];
+
+  board[randPoint[0]][randPoint[1]] = value;
+  return true;
+}

@@ -1,18 +1,25 @@
-import { BoardShift } from '@2048/types/game';
+import { BoardShift, Board } from '@2048/types/game';
 import { ACTIONS } from '@2048/redux/reducers/game.reducer';
 import { IAction } from '@2048/types/redux';
+import { clone, addRandomCell, propagate } from '@2048/services/game.service';
 
-const shiftMap: { [key in BoardShift]: keyof typeof ACTIONS } = {
-  up: 'SHIFT_UP',
-  down: 'SHIFT_DOWN',
-  left: 'SHIFT_LEFT',
-  right: 'SHIFT_RIGHT'
-};
-
-function shiftBoard(shift: BoardShift): IAction<keyof typeof ACTIONS> {
+function shiftBoard(board: Board, shift: BoardShift): IAction<string, Board> {
+  const newBoard = clone(board);
+  propagate(newBoard, shift);
   return {
-    type: shiftMap[shift]
+    type: ACTIONS.SET_BOARD,
+    body: newBoard
   };
 }
 
-export default { shiftBoard };
+function generateRandomCell(board: Board, val: number) {
+  const newBoard = clone(board);
+  const added = addRandomCell(newBoard, val);
+  console.log(added);
+  return {
+    type: ACTIONS.SET_BOARD,
+    body: newBoard
+  };
+}
+
+export default { shiftBoard, generateRandomCell };
