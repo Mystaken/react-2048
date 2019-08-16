@@ -3,17 +3,21 @@ import { Row, Col } from 'antd';
 import Anime, { AnimeProps } from '@2048/components/core/Anime';
 import Squared from '@2048/components/core/Square';
 import { Tile } from '../tiles/Tile';
+import { BoardShift } from '@2048/types/game';
+import { useSelector } from 'react-redux';
+import { $board } from '@2048/redux/selectors/game.selector';
 
-export type BoardShift = 'up' | 'down' | 'left' | 'right';
 interface BoardProps {
   shift?: BoardShift | null;
   onShiftEnd?: (shift: BoardShift) => any;
 }
 const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
+  const board = useSelector($board);
   const [groupShift, setGroupShift] = useState<{
     shift: BoardShift | null;
     completed: boolean;
   }>({ shift: null, completed: false });
+
   function handleShiftComplete(a: anime.AnimeInstance) {
     if (a.completed && !groupShift.completed) {
       onShiftEnd && shift && onShiftEnd(shift);
@@ -26,7 +30,7 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
     if (shift && groupShift.completed) {
       setGroupShift({ shift, completed: false });
     }
-  });
+  }, [shift]);
 
   function generateAnimeProps(
     shift: BoardShift | null | undefined,
@@ -67,16 +71,16 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
 
   return (
     <Col xs={24} sm={24} md={20} lg={16} xl={12} xxl={8}>
-      {[1, 2, 3, 4].map((_, y) => (
+      {board.map((row, y) => (
         <Row gutter={0} type="flex" justify="space-around" key={y}>
-          {[1, 2, 3, 4].map((_, x) => {
+          {row.map((cell, x) => {
             const animeProps = generateAnimeProps(shift, x, y);
             return (
               <Squared
                 key={x}
                 style={{ border: '1px solid black', width: '25%' }}>
                 <Anime complete={handleShiftComplete} {...animeProps}>
-                  <Tile>{y * 4 + x}</Tile>
+                  <Tile>{cell}</Tile>
                 </Anime>
               </Squared>
             );

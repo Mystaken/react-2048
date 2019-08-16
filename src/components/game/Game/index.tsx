@@ -1,7 +1,10 @@
 import { FunctionComponent, useState } from 'react';
 import Center from '@2048/layout/Center';
-import Board, { BoardShift } from '@2048/components/game/Board';
+import Board from '@2048/components/game/Board';
 import styled from 'styled-components';
+import { BoardShift } from '@2048/types/game';
+import { useDispatch } from 'react-redux';
+import gameAction from '@2048/redux/actions/game.action';
 
 const Wrapper = styled.div`
    {
@@ -14,6 +17,8 @@ const MOUSE_DIST_THRESHOLD = 50;
 
 const Game: FunctionComponent = () => {
   const [shift, setShift] = useState<null | BoardShift>(null);
+  const dispatch = useDispatch();
+
   let mouseStart = { x: 0, y: 0 };
 
   function onKeyDown(e: React.KeyboardEvent) {
@@ -58,8 +63,9 @@ const Game: FunctionComponent = () => {
     mouseStart = { x: e.screenX, y: e.screenY };
   }
 
-  function onShiftEnd() {
+  function onShiftEnd(shift: BoardShift) {
     setShift(null);
+    dispatch(gameAction.shiftBoard(shift));
   }
   return (
     <Wrapper

@@ -5,7 +5,7 @@ interface IActionError {
   message: string;
 }
 
-interface IAction<T> extends Action<string> {
-  body: T;
+interface IAction<T extends string, B = any> extends Action<T> {
+  body?: B;
   error?: IActionError;
 }

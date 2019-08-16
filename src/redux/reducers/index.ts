@@ -7,8 +7,12 @@ import gameReducer, { GameState } from './game.reducer';
 export interface IReduxState {
   game: GameState;
 }
-export type INormalDispatch<T> = Dispatch<IAction<T>>;
-export type IThunkDispatch<T> = ThunkDispatch<IReduxState, any, IAction<T>>;
+export type INormalDispatch<T extends string, B> = Dispatch<IAction<T, B>>;
+export type IThunkDispatch<T extends string, B> = ThunkDispatch<
+  IReduxState,
+  any,
+  IAction<T, B>
+>;
 
 const rootReducer = combineReducers<IReduxState>({
   game: gameReducer
