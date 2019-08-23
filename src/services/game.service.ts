@@ -180,3 +180,10 @@ export function addRandomCell(
   board[randPoint[0]][randPoint[1]] = value;
   return [randPoint[0], randPoint[1]];
 }
+
+export function hasValue(
+  board: Board,
+  fn: (boardVal: number) => boolean
+): boolean {
+  return board.some(row => row.some(cell => fn(cell)));
+}
