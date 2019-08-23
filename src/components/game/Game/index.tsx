@@ -69,7 +69,7 @@ const Game: FunctionComponent = () => {
     setShift(null);
     const shiftAction = gameAction.shiftBoard(board, shift);
     dispatch(shiftAction);
-    dispatch(gameAction.generateRandomCell(shiftAction.body!, 2));
+    dispatch(gameAction.generateRandomCell(shiftAction.body!.board, 2));
   }
   return (
     <Wrapper

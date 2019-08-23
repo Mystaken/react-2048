@@ -3,12 +3,18 @@ import { ACTIONS, SET_BOARD_ACTION } from '@2048/redux/reducers/game.reducer';
 import { IAction } from '@2048/types/redux';
 import { clone, addRandomCell, propagate } from '@2048/services/game.service';
 
-function shiftBoard(board: Board, shift: BoardShift): IAction<string, Board> {
+function shiftBoard(
+  board: Board,
+  shift: BoardShift
+): IAction<string, SET_BOARD_ACTION> {
   const newBoard = clone(board);
   propagate(newBoard, shift);
   return {
     type: ACTIONS.SET_BOARD,
-    body: newBoard
+    body: {
+      board: newBoard,
+      newCell: null
+    }
   };
 }
 

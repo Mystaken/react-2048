@@ -37,7 +37,7 @@ const gameReducer = (
           ...state.game,
           board: (action.body as SET_BOARD_ACTION).board
         },
-        newCell: (action.body as SET_BOARD_ACTION).newCell
+        newCell: (action.body as SET_BOARD_ACTION).newCell || state.newCell
       };
     default:
       return state;
