@@ -160,7 +160,10 @@ export function clone(board: Board): Board {
   return board.map(row => [...row]);
 }
 
-export function addRandomCell(board: Board, value: number): boolean {
+export function addRandomCell(
+  board: Board,
+  value: number
+): [number, number] | null {
   let freeCells: [number, number][] = [];
   const height = getHeight(board);
   const width = getWidth(board);
@@ -171,9 +174,9 @@ export function addRandomCell(board: Board, value: number): boolean {
       }
     }
   }
-  if (freeCells.length === 0) return false;
+  if (freeCells.length === 0) return null;
   const randPoint = freeCells[Math.floor(Math.random() * freeCells.length)];
 
   board[randPoint[0]][randPoint[1]] = value;
-  return true;
+  return [randPoint[0], randPoint[1]];
 }

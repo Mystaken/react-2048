@@ -8,6 +8,7 @@ export const ACTIONS = {
 
 export interface GameState {
   game: Game;
+  newCell: [number, number] | null;
 }
 
 const initialState: GameState = {
@@ -15,12 +16,18 @@ const initialState: GameState = {
     height: 4,
     width: 4,
     board: generateEmptyBoard(4, 4)
-  }
+  },
+  newCell: null
 };
+
+export interface SET_BOARD_ACTION {
+  board: Board;
+  newCell: [number, number] | null;
+}
 
 const gameReducer = (
   state: GameState = initialState,
-  action: IAction<keyof typeof ACTIONS, Board>
+  action: IAction<string, { board: Board; newCell: [number, number] }>
 ): GameState => {
   switch (action.type) {
     case 'SET_BOARD':
@@ -28,8 +35,9 @@ const gameReducer = (
         ...state,
         game: {
           ...state.game,
-          board: action.body as Board
-        }
+          board: (action.body as SET_BOARD_ACTION).board
+        },
+        newCell: (action.body as SET_BOARD_ACTION).newCell
       };
     default:
       return state;

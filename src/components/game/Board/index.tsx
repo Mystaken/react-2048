@@ -6,6 +6,9 @@ import { Tile } from '../tiles/Tile';
 import { BoardShift } from '@2048/types/game';
 import { useSelector } from 'react-redux';
 import { $board } from '@2048/redux/selectors/game.selector';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 interface BoardProps {
   shift?: BoardShift | null;
@@ -80,7 +83,9 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
                 key={x}
                 style={{ border: '1px solid black', width: '25%' }}>
                 <Anime complete={handleShiftComplete} {...animeProps}>
-                  <Tile>{cell}</Tile>
+                  <Tile>
+                    <Title level={1}>{cell}</Title>
+                  </Tile>
                 </Anime>
               </Squared>
             );
