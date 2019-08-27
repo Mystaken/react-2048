@@ -4,7 +4,9 @@
   "description": "2048 game made using Nextjs + React",
   "repository": "https://github.com/Mystaken/2048",
   "scripts": {
-    "start": "next -p 8080"
+    "start": "next -p 8080",
+    "export": "next export",
+    "build": "next build"
   },
   "author": "Tianxiang Gao <kgaotianx@gmail.com>",
   "license": "ISC",
