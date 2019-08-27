@@ -37947,8 +37947,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
 
 function generateEmptyBoard(width, height) {
+  var value = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
   return Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(Array(height)).map(function (_) {
-    return new Array(width).fill(1);
+    return new Array(width).fill(value);
   });
 }
 function isValidBoard(width, height, board) {
