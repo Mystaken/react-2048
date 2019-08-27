@@ -15434,7 +15434,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ACTIONS = {
-  SET_BOARD: 'SET_BOARD'
+  SET_BOARD: 'SET_BOARD',
+  RESET_BOARD: 'RESET_BOARD',
+  INITIALIZE: 'INITIALIZE'
 };
 var initialState = {
   game: {
@@ -15450,13 +15452,22 @@ var gameReducer = function gameReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'SET_BOARD':
+    case ACTIONS.SET_BOARD:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         game: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state.game, {
           board: action.body.board
         }),
         newCell: action.body.newCell || state.newCell
       });
+
+    case ACTIONS.RESET_BOARD:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, initialState);
+
+    case ACTIONS.INITIALIZE:
+      return {
+        game: action.body,
+        newCell: null
+      };
 
     default:
       return state;
