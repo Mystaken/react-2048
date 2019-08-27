@@ -1,7 +1,11 @@
 import { Board, BoardShift } from '@2048/types/game';
 
-export function generateEmptyBoard(width: number, height: number): Board {
-  return [...Array(height)].map(_ => new Array(width).fill(1));
+export function generateEmptyBoard(
+  width: number,
+  height: number,
+  value: number = 0
+): Board {
+  return [...Array(height)].map(_ => new Array(width).fill(value));
 }
 
 export function isValidBoard(
