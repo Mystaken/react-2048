@@ -54,6 +54,7 @@ const Header: FunctionComponent = () => {
                 min={1}
                 max={10}
                 value={height}
+                formatter={value => `Height: ${value}`}
                 onChange={onHeightChange}
               />
             </Menu.Item>
@@ -62,6 +63,7 @@ const Header: FunctionComponent = () => {
                 min={1}
                 max={10}
                 value={width}
+                formatter={value => `Width: ${value}`}
                 onChange={onWidthChange}
               />
             </Menu.Item>
