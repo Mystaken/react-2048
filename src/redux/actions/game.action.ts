@@ -1,4 +1,4 @@
-import { BoardShift, Board } from '@2048/types/game';
+import { BoardShift, Board, Game } from '@2048/types/game';
 import { ACTIONS, SET_BOARD_ACTION } from '@2048/redux/reducers/game.reducer';
 import { IAction } from '@2048/types/redux';
 import { clone, addRandomCell, propagate } from '@2048/services/game.service';
@@ -33,4 +33,15 @@ function generateRandomCell(
   };
 }
 
-export default { shiftBoard, generateRandomCell };
+function resetBoard(): IAction<string> {
+  return { type: ACTIONS.RESET_BOARD };
+}
+
+function initialize(game: Game): IAction<string, Game> {
+  return {
+    type: ACTIONS.INITIALIZE,
+    body: game
+  };
+}
+
+export default { shiftBoard, generateRandomCell, resetBoard, initialize };

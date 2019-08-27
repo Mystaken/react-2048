@@ -3,7 +3,9 @@ import { generateEmptyBoard } from '@2048/services/game.service';
 import { IAction } from '@2048/types/redux';
 
 export const ACTIONS = {
-  SET_BOARD: 'SET_BOARD'
+  SET_BOARD: 'SET_BOARD',
+  RESET_BOARD: 'RESET_BOARD',
+  INITIALIZE: 'INITIALIZE'
 };
 
 export interface GameState {
@@ -27,10 +29,10 @@ export interface SET_BOARD_ACTION {
 
 const gameReducer = (
   state: GameState = initialState,
-  action: IAction<string, { board: Board; newCell: [number, number] }>
+  action: IAction<string, { board: Board; newCell: [number, number] } | Game>
 ): GameState => {
   switch (action.type) {
-    case 'SET_BOARD':
+    case ACTIONS.SET_BOARD:
       return {
         ...state,
         game: {
@@ -38,6 +40,15 @@ const gameReducer = (
           board: (action.body as SET_BOARD_ACTION).board
         },
         newCell: (action.body as SET_BOARD_ACTION).newCell || state.newCell
+      };
+    case ACTIONS.RESET_BOARD:
+      return {
+        ...initialState
+      };
+    case ACTIONS.INITIALIZE:
+      return {
+        game: action.body as Game,
+        newCell: null
       };
     default:
       return state;
