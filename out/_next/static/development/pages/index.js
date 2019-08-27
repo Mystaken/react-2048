@@ -37711,6 +37711,9 @@ var Header = function Header() {
     min: 1,
     max: 10,
     value: height,
+    formatter: function formatter(value) {
+      return "Height: ".concat(value);
+    },
     onChange: onHeightChange,
     __source: {
       fileName: _jsxFileName,
@@ -37721,31 +37724,34 @@ var Header = function Header() {
     key: "2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 61
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_13___default.a.createElement(antd_lib_input_number__WEBPACK_IMPORTED_MODULE_9___default.a, {
     min: 1,
     max: 10,
     value: width,
+    formatter: function formatter(value) {
+      return "Width: ".concat(value);
+    },
     onChange: onWidthChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_13___default.a.createElement(antd_lib_menu__WEBPACK_IMPORTED_MODULE_7___default.a.Item, {
     key: "3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 70
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_13___default.a.createElement(antd_lib_button__WEBPACK_IMPORTED_MODULE_5___default.a, {
     onClick: restart,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 71
     },
     __self: this
   }, "Restart"))))));
