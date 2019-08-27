@@ -187,3 +187,14 @@ export function hasValue(
 ): boolean {
   return board.some(row => row.some(cell => fn(cell)));
 }
+
+export function canMove(board: Board) {
+  const cloneBoard = clone(board);
+  let shifts: BoardShift[] = ['up', 'down', 'left', 'right'];
+  for (let shift of shifts) {
+    if (!propagate(cloneBoard, shift)) {
+      return true;
+    }
+  }
+  return hasValue(cloneBoard, value => value === 0);
+}

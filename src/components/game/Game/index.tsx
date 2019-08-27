@@ -1,11 +1,12 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 import Center from '@2048/layout/Center';
 import Board from '@2048/components/game/Board';
 import styled from 'styled-components';
 import { BoardShift } from '@2048/types/game';
 import { useDispatch, useSelector } from 'react-redux';
 import gameAction from '@2048/redux/actions/game.action';
-import { $board } from '@2048/redux/selectors/game.selector';
+import { $board, $won, $lost } from '@2048/redux/selectors/game.selector';
+import { Modal } from 'antd';
 
 const Wrapper = styled.div`
    {
@@ -19,6 +20,8 @@ const MOUSE_DIST_THRESHOLD = 50;
 const Game: FunctionComponent = () => {
   const [shift, setShift] = useState<null | BoardShift>(null);
   const board = useSelector($board);
+  const lost = useSelector($lost);
+  const won = useSelector($won);
   const dispatch = useDispatch();
 
   let mouseStart = { x: 0, y: 0 };
@@ -71,16 +74,34 @@ const Game: FunctionComponent = () => {
     dispatch(shiftAction);
     dispatch(gameAction.generateRandomCell(shiftAction.body!.board, 2));
   }
+  useEffect(() => {
+    if (won) {
+      Modal.success({
+        title: 'You won!'
+      });
+    }
+  }, [won]);
+
+  useEffect(() => {
+    if (lost) {
+      Modal.error({
+        title: 'You lost!'
+      });
+    }
+  }, [lost]);
+
   return (
-    <Wrapper
-      onKeyDown={onKeyDown}
-      onMouseDown={onMouseDown}
-      onMouseUp={onMouseUp}
-      tabIndex={0}>
-      <Center>
-        <Board shift={shift} onShiftEnd={onShiftEnd} />
-      </Center>
-    </Wrapper>
+    <>
+      <Wrapper
+        onKeyDown={onKeyDown}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        tabIndex={0}>
+        <Center>
+          <Board shift={shift} onShiftEnd={onShiftEnd} />
+        </Center>
+      </Wrapper>
+    </>
   );
 };
 
