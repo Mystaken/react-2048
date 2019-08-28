@@ -200,5 +200,5 @@ export function canMove(board: Board) {
       return true;
     }
   }
-  return hasValue(cloneBoard, value => value === 0);
+  return !hasValue(cloneBoard, value => value === 0);
 }
