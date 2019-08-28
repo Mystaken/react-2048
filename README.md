@@ -1,4 +1,4 @@
-# [2048](https://mystaken.github.io/2048)
+# [2048](https://mystaken.github.io/react-2048)
 
 2048 game built with Typescript using React/Redux via Next.js.
 
