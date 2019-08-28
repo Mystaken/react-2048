@@ -15290,7 +15290,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/tianxianggao/Desktop/2048/pages/_app.tsx";
+var _jsxFileName = "/Users/tianxianggao/Desktop/react-2048/pages/_app.tsx";
 
 function _templateObject() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_6__["default"])(["\n  body,\n  #__next {\n    margin: 0px;\n    height: 100vh;\n  }\n"]);
