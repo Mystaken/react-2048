@@ -15724,7 +15724,6 @@ function hasValue(board, fn) {
 function canMove(board) {
   var cloneBoard = clone(board);
   var shifts = ['up', 'down', 'left', 'right'];
-  console.log(board);
 
   for (var _i = 0, _shifts = shifts; _i < _shifts.length; _i++) {
     var shift = _shifts[_i];
