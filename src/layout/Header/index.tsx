@@ -1,4 +1,4 @@
-import { Layout, Row, Col, Menu, Button, InputNumber } from 'antd';
+import { Layout, Row, Col, Menu, Button, InputNumber, Tooltip } from 'antd';
 import { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
@@ -50,22 +50,24 @@ const Header: FunctionComponent = () => {
             defaultSelectedKeys={['2']}
             style={{ lineHeight: '64px' }}>
             <Menu.Item key="1">
-              <InputNumber
-                min={1}
-                max={10}
-                value={height}
-                formatter={value => `Height: ${value}`}
-                onChange={onHeightChange}
-              />
+              <Tooltip placement="topLeft" title="Height">
+                <InputNumber
+                  min={1}
+                  max={10}
+                  value={height}
+                  onChange={onHeightChange}
+                />
+              </Tooltip>
             </Menu.Item>
             <Menu.Item key="2">
-              <InputNumber
-                min={1}
-                max={10}
-                value={width}
-                formatter={value => `Width: ${value}`}
-                onChange={onWidthChange}
-              />
+              <Tooltip placement="topLeft" title="Width">
+                <InputNumber
+                  min={1}
+                  max={10}
+                  value={width}
+                  onChange={onWidthChange}
+                />
+              </Tooltip>
             </Menu.Item>
             <Menu.Item key="3">
               <Button onClick={restart}>Restart</Button>

@@ -171,8 +171,8 @@ export function addRandomCell(
   let freeCells: [number, number][] = [];
   const height = getHeight(board);
   const width = getWidth(board);
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
+  for (let i = 0; i < width; i++) {
+    for (let j = 0; j < height; j++) {
       if (board[i][j] === 0) {
         freeCells.push([i, j]);
       }
