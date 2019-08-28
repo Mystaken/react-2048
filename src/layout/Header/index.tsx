@@ -1,4 +1,4 @@
-import { Layout, Row, Col, Menu, Button, InputNumber, Tooltip } from 'antd';
+import { Button, InputNumber, Form } from 'antd';
 import { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,10 +6,12 @@ import { $game } from '@2048/redux/selectors/game.selector';
 import gameAction from '@2048/redux/actions/game.action';
 import { generateEmptyBoard, addRandomCell } from '@2048/services/game.service';
 
-const FixedHeader = styled(Layout.Header)`
+const FixedHeader = styled(Form)`
   position: fixed;
   z-index: 1;
   width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 const Header: FunctionComponent = () => {
@@ -41,40 +43,23 @@ const Header: FunctionComponent = () => {
     );
   }
   return (
-    <FixedHeader>
-      <Row>
-        <Col span={24}>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '64px' }}>
-            <Menu.Item key="1">
-              <Tooltip placement="topLeft" title="Height">
-                <InputNumber
-                  min={1}
-                  max={10}
-                  value={height}
-                  onChange={onHeightChange}
-                />
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Tooltip placement="topLeft" title="Width">
-                <InputNumber
-                  min={1}
-                  max={10}
-                  value={width}
-                  onChange={onWidthChange}
-                />
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Button onClick={restart}>Restart</Button>
-            </Menu.Item>
-          </Menu>
-        </Col>
-      </Row>
+    <FixedHeader layout="inline">
+      <Form.Item label="Height">
+        <InputNumber
+          min={1}
+          max={10}
+          value={height}
+          onChange={onHeightChange}
+        />
+      </Form.Item>
+      <Form.Item label="Width">
+        <InputNumber min={1} max={10} value={width} onChange={onWidthChange} />
+      </Form.Item>
+      <Form.Item>
+        <Button onClick={restart} type="primary" htmlType="submit">
+          Restart
+        </Button>
+      </Form.Item>
     </FixedHeader>
   );
 };
