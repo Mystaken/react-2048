@@ -35,5 +35,5 @@ module.exports = withCSS({
     }
     return config;
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/2048' : ''
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/react-2048' : ''
 });

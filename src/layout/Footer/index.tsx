@@ -17,7 +17,7 @@ const Footer: FunctionComponent = () => {
         shape="circle"
         icon="github"
         size="large"
-        href="https://github.com/Mystaken/2048"
+        href="https://github.com/Mystaken/react-2048"
         target="_blank"
       />
     </FixedFooter>
