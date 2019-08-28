@@ -3,6 +3,14 @@
   "version": "0.0.1",
   "description": "2048 Game written in Typescript using React/Redux and NextJS",
   "repository": "https://github.com/Mystaken/react-2048",
+  "keywords": [
+    "react",
+    "redux",
+    "typescript",
+    "nextjs",
+    "animejs",
+    "antd"
+  ],
   "scripts": {
     "start": "next -p 8080",
     "export": "next export",
