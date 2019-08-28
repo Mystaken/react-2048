@@ -30,4 +30,4 @@ yarn start
 
 ## How to play
 
-Plays like regular 2048, but you can set the dimensions of the board on the top. Use arrow keys to move the cells or drag the board using your mouse.
+Plays like regular 2048, but you can set the dimensions of the board on the top. Use arrow keys to move the cells or swipe using mouse or finger.
