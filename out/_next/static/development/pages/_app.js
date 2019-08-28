@@ -15701,8 +15701,8 @@ function addRandomCell(board, value) {
   var height = getHeight(board);
   var width = getWidth(board);
 
-  for (var i = 0; i < height; i++) {
-    for (var j = 0; j < width; j++) {
+  for (var i = 0; i < width; i++) {
+    for (var j = 0; j < height; j++) {
       if (board[i][j] === 0) {
         freeCells.push([i, j]);
       }
