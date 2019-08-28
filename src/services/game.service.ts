@@ -195,10 +195,11 @@ export function hasValue(
 export function canMove(board: Board) {
   const cloneBoard = clone(board);
   let shifts: BoardShift[] = ['up', 'down', 'left', 'right'];
+  let canMove = false;
   for (let shift of shifts) {
-    if (!propagate(cloneBoard, shift)) {
-      return true;
+    if (!canMove && propagate(cloneBoard, shift)) {
+      canMove = true;
     }
   }
-  return !hasValue(cloneBoard, value => value === 0);
+  return canMove || hasValue(cloneBoard, value => value === 0);
 }
