@@ -73,15 +73,15 @@ export function propagateLine(
 }
 
 export function getHeight(board: Board) {
+  return board.length;
+}
+
+export function getWidth(board: Board) {
   if (board.length === 0) {
     return 0;
   } else {
     return board[0].length;
   }
-}
-
-export function getWidth(board: Board) {
-  return board.length;
 }
 
 export function propagateGrid(
@@ -171,8 +171,8 @@ export function addRandomCell(
   let freeCells: [number, number][] = [];
   const height = getHeight(board);
   const width = getWidth(board);
-  for (let i = 0; i < width; i++) {
-    for (let j = 0; j < height; j++) {
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) {
       if (board[i][j] === 0) {
         freeCells.push([i, j]);
       }
@@ -195,6 +195,7 @@ export function hasValue(
 export function canMove(board: Board) {
   const cloneBoard = clone(board);
   let shifts: BoardShift[] = ['up', 'down', 'left', 'right'];
+  console.log(board);
   for (let shift of shifts) {
     if (!propagate(cloneBoard, shift)) {
       return true;

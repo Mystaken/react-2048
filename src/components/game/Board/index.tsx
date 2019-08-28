@@ -43,9 +43,9 @@ const Board: FunctionComponent<BoardProps> = ({ shift, onShiftEnd }) => {
     if (
       !shift ||
       (y === 0 && shift === 'up') ||
-      (y === 3 && shift === 'down') ||
+      (y >= game.height - 1 && shift === 'down') ||
       (x === 0 && shift === 'left') ||
-      (x === 3 && shift === 'right')
+      (x >= game.width - 1 && shift === 'right')
     ) {
       return { restart: true } as AnimeProps;
     }
