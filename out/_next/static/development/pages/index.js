@@ -37134,7 +37134,7 @@ var Board = function Board(_ref) {
   }, [shift]);
 
   function generateAnimeProps(shift, x, y) {
-    if (!shift || y === 0 && shift === 'up' || y === 3 && shift === 'down' || x === 0 && shift === 'left' || x === 3 && shift === 'right') {
+    if (!shift || y === 0 && shift === 'up' || y >= game.height - 1 && shift === 'down' || x === 0 && shift === 'left' || x >= game.width - 1 && shift === 'right') {
       return {
         restart: true
       };
@@ -38017,14 +38017,14 @@ function propagateLine(getPoint, setPoint, length) {
   return moved;
 }
 function getHeight(board) {
+  return board.length;
+}
+function getWidth(board) {
   if (board.length === 0) {
     return 0;
   } else {
     return board[0].length;
   }
-}
-function getWidth(board) {
-  return board.length;
 }
 function propagateGrid(getLine, setLine, numLines, lineLength) {
   var moved = false;
@@ -38121,8 +38121,8 @@ function addRandomCell(board, value) {
   var height = getHeight(board);
   var width = getWidth(board);
 
-  for (var i = 0; i < width; i++) {
-    for (var j = 0; j < height; j++) {
+  for (var i = 0; i < height; i++) {
+    for (var j = 0; j < width; j++) {
       if (board[i][j] === 0) {
         freeCells.push([i, j]);
       }
@@ -38144,6 +38144,7 @@ function hasValue(board, fn) {
 function canMove(board) {
   var cloneBoard = clone(board);
   var shifts = ['up', 'down', 'left', 'right'];
+  console.log(board);
 
   for (var _i = 0, _shifts = shifts; _i < _shifts.length; _i++) {
     var shift = _shifts[_i];
