@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import gameAction from '@2048/redux/actions/game.action';
 import { $game } from '@2048/redux/selectors/game.selector';
 import { generateEmptyBoard } from '@2048/services/game.service';
+import Head from 'next/head';
 
 const GamePage: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -17,13 +18,19 @@ const GamePage: FunctionComponent = () => {
     dispatch(gameAction.generateRandomCell(newBoard, 2));
   }, []);
   return (
-    <Layout className="layout">
-      <Header />
-      <Content>
-        <Game />
-      </Content>
-      <Footer />
-    </Layout>
+    <>
+      <Head>
+        <title>React 2048</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Layout className="layout">
+        <Header />
+        <Content>
+          <Game />
+        </Content>
+        <Footer />
+      </Layout>
+    </>
   );
 };
 
