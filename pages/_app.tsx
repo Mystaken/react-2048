@@ -1,4 +1,4 @@
-import App, { Container, AppContext } from 'next/app';
+import App, { AppContext } from 'next/app';
 import React from 'react';
 import { theme } from '@2048/theme';
 import { Provider } from 'react-redux';
@@ -18,14 +18,14 @@ class MyApp extends App<AppContext> {
   public render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
+      <>
         <GlobalStyle />
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <Component {...pageProps} />
           </ThemeProvider>
         </Provider>
-      </Container>
+      </>
     );
   }
 }
