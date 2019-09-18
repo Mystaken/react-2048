@@ -1,10 +1,9 @@
 import App, { AppContext } from 'next/app';
 import React from 'react';
-import { theme } from '@2048/theme';
 import { Provider } from 'react-redux';
 import { store } from '@2048/redux/store';
 
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body,
@@ -21,9 +20,7 @@ class MyApp extends App<AppContext> {
       <>
         <GlobalStyle />
         <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
+          <Component {...pageProps} />
         </Provider>
       </>
     );
