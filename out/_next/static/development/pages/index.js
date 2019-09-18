@@ -42916,19 +42916,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_row__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_row__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/lib/typography/style/css */ "./node_modules/antd/lib/typography/style/css.js");
-/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/lib/typography */ "./node_modules/antd/lib/typography/index.js");
-/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _core_Anime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../core/Anime */ "./src/components/core/Anime/index.tsx");
-/* harmony import */ var _core_Square__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../core/Square */ "./src/components/core/Square/index.tsx");
-/* harmony import */ var _tiles_Tile__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../tiles/Tile */ "./src/components/game/tiles/Tile/index.tsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_selectors_game_selector__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../redux/selectors/game.selector */ "./src/redux/selectors/game.selector.ts");
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _core_Anime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/Anime */ "./src/components/core/Anime/index.tsx");
+/* harmony import */ var _core_Square__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/Square */ "./src/components/core/Square/index.tsx");
+/* harmony import */ var _tiles_Tile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../tiles/Tile */ "./src/components/game/tiles/Tile/index.tsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_selectors_game_selector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../redux/selectors/game.selector */ "./src/redux/selectors/game.selector.ts");
 
 
 
@@ -42937,21 +42931,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/Users/tianxianggao/Desktop/react-2048/src/components/game/Board/index.tsx";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
 
 
 
 
-var Title = antd_lib_typography__WEBPACK_IMPORTED_MODULE_7___default.a.Title;
 
 var Board = function Board(_ref) {
   var shift = _ref.shift,
       onShiftEnd = _ref.onShiftEnd;
-  var game = Object(react_redux__WEBPACK_IMPORTED_MODULE_12__["useSelector"])(_redux_selectors_game_selector__WEBPACK_IMPORTED_MODULE_13__["$game"]);
+  var game = Object(react_redux__WEBPACK_IMPORTED_MODULE_10__["useSelector"])(_redux_selectors_game_selector__WEBPACK_IMPORTED_MODULE_11__["$game"]);
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_8__["useState"])({
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])({
     shift: null,
     completed: false
   }),
@@ -42970,7 +42963,7 @@ var Board = function Board(_ref) {
     }
   }
 
-  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (shift && groupShift.completed) {
       setGroupShift({
         shift: shift,
@@ -43030,7 +43023,7 @@ var Board = function Board(_ref) {
     xxl: 8,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 73
     },
     __self: this
   }, game.board.map(function (row, y) {
@@ -43041,12 +43034,12 @@ var Board = function Board(_ref) {
       key: y,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 75
       },
       __self: this
     }, row.map(function (cell, x) {
       var animeProps = generateAnimeProps(shift, x, y);
-      return __jsx(_core_Square__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      return __jsx(_core_Square__WEBPACK_IMPORTED_MODULE_8__["default"], {
         key: x,
         style: {
           border: '1px solid black',
@@ -43054,31 +43047,26 @@ var Board = function Board(_ref) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 79
         },
         __self: this
-      }, __jsx(_core_Anime__WEBPACK_IMPORTED_MODULE_9__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_4__["default"])({
+      }, __jsx(_core_Anime__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_4__["default"])({
         complete: handleShiftComplete
       }, animeProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 85
         },
         __self: this
-      }), __jsx(_tiles_Tile__WEBPACK_IMPORTED_MODULE_11__["Tile"], {
+      }), __jsx(_tiles_Tile__WEBPACK_IMPORTED_MODULE_9__["Tile"], {
+        color: "dark",
+        cellNum: cell,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 86
         },
         __self: this
-      }, __jsx(Title, {
-        level: 1,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90
-        },
-        __self: this
-      }, cell))));
+      })));
     }));
   }));
 };
@@ -43232,43 +43220,211 @@ var Game = function Game() {
 /*!**************************************************!*\
   !*** ./src/components/game/tiles/Tile/index.tsx ***!
   \**************************************************/
-/*! exports provided: Tile */
+/*! exports provided: DarkTile, Tile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DarkTile", function() { return DarkTile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tile", function() { return Tile; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _core_hoc_WithoutTextSelection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/hoc/WithoutTextSelection */ "./src/components/core/hoc/WithoutTextSelection/index.tsx");
-/* harmony import */ var _layout_Center__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../layout/Center */ "./src/layout/Center/index.tsx");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/typography/style/css */ "./node_modules/antd/lib/typography/style/css.js");
+/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/typography */ "./node_modules/antd/lib/typography/index.js");
+/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _core_hoc_WithoutTextSelection__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../core/hoc/WithoutTextSelection */ "./src/components/core/hoc/WithoutTextSelection/index.tsx");
+/* harmony import */ var _layout_Center__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../layout/Center */ "./src/layout/Center/index.tsx");
+/* harmony import */ var _TileText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../TileText */ "./src/components/game/tiles/TileText/index.tsx");
+
+
+
+
 var _jsxFileName = "/Users/tianxianggao/Desktop/react-2048/src/components/game/tiles/Tile/index.tsx";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement;
 
 
 
-var Tile = function Tile(_ref) {
-  var children = _ref.children;
-  var StyledDiv = Object(_core_hoc_WithoutTextSelection__WEBPACK_IMPORTED_MODULE_2__["default"])(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
-    displayName: "Tile__StyledDiv",
-    componentId: "njt9mx-0"
-  })(["height:100%;width:100%;background:lightblue;text-align:center;"]));
-  return __jsx(StyledDiv, {
+
+var Title = antd_lib_typography__WEBPACK_IMPORTED_MODULE_3___default.a.Title;
+var DefaultTile = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
+  displayName: "Tile__DefaultTile",
+  componentId: "njt9mx-0"
+})(["height:100%;width:100%;text-align:center;"]);
+var DarkTile = function DarkTile(_ref) {
+  var cellNum = _ref.cellNum;
+  var backgroundColor = 'white';
+
+  if (cellNum >= 2048) {
+    backgroundColor = 'black';
+  } else if (cellNum >= 1024) {
+    backgroundColor = '1a1a1a';
+  } else if (cellNum >= 512) {
+    backgroundColor = '333333';
+  } else if (cellNum >= 256) {
+    backgroundColor = '#4d4d4d';
+  } else if (cellNum >= 128) {
+    backgroundColor = '#808080';
+  } else if (cellNum >= 64) {
+    backgroundColor = '#8c8c8c';
+  } else if (cellNum >= 32) {
+    backgroundColor = '#a6a6a6';
+  } else if (cellNum >= 16) {
+    backgroundColor = '#b3b3b3';
+  } else if (cellNum >= 8) {
+    backgroundColor = '#cccccc';
+  } else if (cellNum >= 4) {
+    backgroundColor = '#d9d9d9';
+  } else if (cellNum >= 2) {
+    backgroundColor = '#f2f2f2';
+  }
+
+  var textColor = 'black';
+
+  if (cellNum >= 128) {
+    textColor = 'white';
+  }
+
+  var DarkTile = Object(styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(DefaultTile).withConfig({
+    displayName: "Tile__DarkTile",
+    componentId: "njt9mx-1"
+  })(["background:", ";"], backgroundColor);
+  var StyledTile = Object(_core_hoc_WithoutTextSelection__WEBPACK_IMPORTED_MODULE_6__["default"])(DarkTile);
+  return __jsx(StyledTile, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 50
     },
     __self: this
-  }, __jsx(_layout_Center__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx(_layout_Center__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 51
     },
     __self: this
-  }, children));
+  }, __jsx(_TileText__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    color: textColor,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }, cellNum)));
 };
+var Tile = function Tile(_ref2) {
+  var color = _ref2.color,
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, ["color"]);
+
+  switch (color) {
+    case 'dark':
+      return __jsx(DarkTile, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        },
+        __self: this
+      }));
+
+    default:
+  }
+
+  var StyledTile = Object(_core_hoc_WithoutTextSelection__WEBPACK_IMPORTED_MODULE_6__["default"])(DefaultTile);
+  return __jsx(StyledTile, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: this
+  }, __jsx(_layout_Center__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: this
+  }, __jsx(Title, {
+    level: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: this
+  }, props.cellNum)));
+};
+
+/***/ }),
+
+/***/ "./src/components/game/tiles/TileText/index.tsx":
+/*!******************************************************!*\
+  !*** ./src/components/game/tiles/TileText/index.tsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/typography/style/css */ "./node_modules/antd/lib/typography/style/css.js");
+/* harmony import */ var antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography_style_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/typography */ "./node_modules/antd/lib/typography/index.js");
+/* harmony import */ var antd_lib_typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+
+
+
+var _jsxFileName = "/Users/tianxianggao/Desktop/react-2048/src/components/game/tiles/TileText/index.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement;
+
+var Title = antd_lib_typography__WEBPACK_IMPORTED_MODULE_3___default.a.Title;
+
+var TileText = function TileText(_ref) {
+  var color = _ref.color,
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["color"]);
+
+  var htmlColor = '';
+
+  switch (color) {
+    case 'white':
+      htmlColor = 'white';
+      break;
+
+    case 'red':
+      htmlColor = 'red';
+      break;
+
+    case 'black':
+      htmlColor = 'black';
+      break;
+
+    case 'blue':
+      htmlColor = 'blue';
+      break;
+  }
+
+  var StyledTitle = Object(styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(Title).withConfig({
+    displayName: "TileText__StyledTitle",
+    componentId: "sc-6fyt8a-0"
+  })(["color:", " !important;"], htmlColor);
+  return __jsx(StyledTitle, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    level: 1
+  }, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TileText);
 
 /***/ }),
 
